@@ -1,0 +1,112 @@
+1) Configuración inicial
+
+git --version — Verifica que Git esté instalado. 
+Gist
+
+git config --global user.name "Tu Nombre" / user.email "tu@email.com" — Define tu identidad para los commits. 
+GitHub
+
+git config --global core.editor "code --wait" / init.defaultBranch main — Ajustes útiles (editor por defecto, rama inicial). 
+Gist
+
+2) Empezar un repo o clonar uno existente
+
+git init — Crea un repositorio en la carpeta actual. 
+GitHub
+
+git clone <url> — Copia un repo remoto (GitHub) a local. 
+GitHub
+
+3) Estado y preparación de cambios
+
+git status — Muestra archivos modificados y el estado del área de staging. 
+GitHub
+
+git add <archivo> / git add . — Pasa cambios al staging. 
+GitHub
+
+git restore <archivo> — Descarta cambios no indexados (alternativa moderna a checkout --). 
+Gist
+
+git rm <archivo> / git mv <a> <b> — Elimina o mueve archivos bajo control de Git. 
+GitHub
+
+4) Guardar y revisar el historial
+
+git commit -m "mensaje" — Crea un snapshot del staging. 
+GitHub
+
+git log / git log --oneline --graph --decorate — Revisa el historial de commits (formato compacto y con gráfico). 
+GitHub
+
+git diff — Muestra diferencias (de trabajo ↔ staging ↔ últimos commits). 
+GitHub
+
+5) Ramas y flujos de trabajo
+
+git branch / git branch <rama> — Lista o crea ramas. 
+GitHub
+
+git switch <rama> o git checkout <rama> — Cambia de rama. -c crea y cambia en una sola pasada. 
+Gist
+
+git merge <rama> — Une otra rama a la actual (merge commit). 
+GitHub
+
+git rebase <rama> — Reaplica tus commits “encima” de otra rama (historial más lineal). 
+theserverside.com
+
+6) Deshacer/Corregir
+
+git reset --soft <hash> — Mueve HEAD conservando cambios en staging.
+
+git reset --mixed <hash> (por defecto) — Saca del staging pero deja cambios en el árbol de trabajo.
+
+git reset --hard <hash> — Regresa y borra cambios (útil con precaución). 
+theserverside.com
+
+git revert <hash> — Crea un commit inverso (más seguro para repos remotos). 
+theserverside.com
+
+git commit --amend — Edita el último commit (mensaje o incluir cambios olvidados). 
+Gist
+
+7) Trabajo temporal
+
+git stash / git stash list / git stash pop — Guarda cambios “en el bolsillo”, lista y recupera. Ideal para cambiar de rama sin commitear. 
+GitHub
+
+8) Remotos y GitHub
+
+git remote -v / git remote add origin <url> — Ver o agregar el remoto principal. 
+GitHub
+
+git fetch — Trae referencias del remoto sin mezclar con tu rama actual. 
+theserverside.com
+
+git pull — fetch + integra (merge o rebase según configuración). 
+theserverside.com
+
+git push -u origin <rama> — Sube tu rama y establece upstream para futuros push/pull. 
+GitHub
+
+GitHub básico (desde la web): forks, issues, pull requests y revisión de código forman el flujo de colaboración típico. 
+GitHub Docs
+
+9) Versionado y lanzamientos
+
+git tag v1.0.0 / git tag -a v1.0.0 -m "mensaje" — Marca versiones.
+
+git push origin --tags — Publica tus tags en el remoto (útil para releases). 
+GitHub
+
+10) Extras útiles
+
+.gitignore — Define qué archivos/directorios no rastrear (por ejemplo, node_modules/, .env). 
+GitHub
+
+git config --global alias.st "status -sb" — Alias para acelerar comandos frecuentes. 
+Gist
+
+SSH con GitHub: generar claves (ssh-keygen), añadir la pública a GitHub para evitar escribir usuario/contraseña en cada push. 
+GitHub Docs
